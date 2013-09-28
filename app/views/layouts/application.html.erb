@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>pic post</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
+  <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <ul class="nav nav-pills pull-right">
+        <li class="active"><a href="#">Home</a></li>
+        <li><a href="#">Sign up</a></li>
+      </ul>
+      <h3 class="text-muted">Pic Post</h3>
+    </div>
+
+    <%= yield %>
+
+    <div class="footer">
+      <p>© Pic Post 2013</p>
+    </div>
+  </div>
+</body>
+</html>
