@@ -1,8 +1,20 @@
 PicPost::Application.routes.draw do
 
-  devise_for :users
-
   root 'pages#home'
+
+  scope :auth do
+    scope :instagram do
+      get 'connect',  to: 'sessions#connect'
+      get 'callback', to: 'sessions#callback'
+      get 'failure',  to: redirect('/')
+      get 'sign-out', to: 'sessions#destroy', as: 'sign_out'
+    end
+  end
+
+  resources :post_cards, only: [:new, :create, :show] do
+    resources :charges, only: [:new, :create]
+  end
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

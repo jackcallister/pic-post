@@ -1,0 +1,55 @@
+<%= form_for @post_card do |f| %>
+
+  <div class="form-group">
+    <%= f.text_field :address_line1, class: 'form-control', placeholder: 'Address line 1 (required)' %>
+  </div>
+
+  <div class="form-group">
+    <%= f.text_field :address_line2, class: 'form-control', placeholder: 'Address line 2' %>
+  </div>
+
+  <div class="form-group">
+    <%= f.text_field :city, class: 'form-control', placeholder: 'City (required)' %>
+  </div>
+
+  <div class="form-group">
+    <%= f.text_field :zip, class: 'form-control', placeholder: 'Zip (required)' %>
+  </div>
+
+  <div class="form-group">
+    <%= f.text_field :state, class: 'form-control', placeholder: 'State (required)' %>
+  </div>
+
+  <div class="form-group">
+    <%= f.text_field :country, class: 'form-control', placeholder: 'Country (required)' %>
+  </div>
+
+  <hr>
+
+  <div class="form-group">
+    <%= f.text_field :name, class: 'form-control', placeholder: 'Recipient name' %>
+  </div>
+
+  <div class="form-group">
+    <%= f.text_area :message, class: 'form-control', placeholder: 'Message', rows: '12' %>
+  </div>
+
+  <hr>
+
+  <div class="row">
+    <% @image_urls.each do |url| %>
+      <div class="col-sm-6 col-md-3 image-select" data-radio-button>
+        <span class="thumbnail">
+          <%= image_tag url %>
+        </span>
+        <%= f.radio_button :remote_picture_url, url %>
+      </div>
+    <% end %>
+  </div>
+
+  <hr>
+
+  <div class="clearfix">
+    <%= f.submit 'Submit', class: 'btn btn-success pull-right' %>
+  </div>
+<% end %>

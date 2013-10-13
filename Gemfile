@@ -30,15 +30,35 @@ gem 'turbolinks'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 1.2'
 
-gem 'devise'
-
-gem 'omniauth'
+gem 'omniauth-instagram'
 
 gem 'instagram'
+
+gem 'lob'
+
+gem 'carrierwave'
+
+gem 'dotenv-rails'
+
+gem 'mini_magick'
+
+gem 'stripe', :git => 'https://github.com/stripe/stripe-ruby'
 
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
   gem 'sdoc', require: false
+end
+
+group :development, :test do
+
+  # RSpec makes testing nicer
+  gem 'rspec-rails'
+
+  # Factories make tests simpler
+  gem 'factory_girl_rails'
+
+  # Simple matchers
+  gem 'shoulda'
 end
 
 # Use ActiveModel has_secure_password
@@ -51,4 +71,4 @@ end
 # gem 'capistrano', group: :development
 
 # Use debugger
-# gem 'debugger', group: [:development, :test]
+gem 'debugger', group: [:development, :test]

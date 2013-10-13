@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>pic post</title>
+  <title>Pic post</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
   <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
@@ -11,16 +11,20 @@
   <div class="container">
     <div class="header">
       <ul class="nav nav-pills pull-right">
-        <li class="active"><a href="#">Home</a></li>
-        <li><a href="#">Sign up</a></li>
+        <% if current_user %>
+          <li><%= link_to "Sign out", sign_out_path %></li>
+        <% else %>
+          <li><%= link_to "Sign in", "/auth/instagram/connect", :'data-loading-text' => "Loading..." %></li>
+        <% end %>
       </ul>
-      <h3 class="text-muted">Pic Post</h3>
+      <h3 class="text-muted"><%= link_to 'Pic post', root_path%></h3>
     </div>
 
     <%= yield %>
 
     <div class="footer">
-      <p>© Pic Post 2013</p>
+      <hr>
+      <p>© Pic post 2013</p>
     </div>
   </div>
 </body>

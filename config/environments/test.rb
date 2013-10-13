@@ -33,4 +33,8 @@ PicPost::Application.configure do
 
   # Print deprecation notices to the stderr.
   config.active_support.deprecation = :stderr
+
+  Lob.configure do |config|
+    config.api_key = ENV['LOB_KEY_DEVELOPMENT']
+  end
 end

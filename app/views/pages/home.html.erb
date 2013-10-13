@@ -1,5 +1,10 @@
 <div class="jumbotron">
-  <h1>Pic Post</h1>
-  <p class="lead">Print and post your favourite instagram photos.</p>
-  <p><a class="btn btn-lg btn-success" href="#">Sign up today</a></p>
+  <h1>Pic post</h1>
+  <p class="lead">Send your favourite instagram photos as postcards to your friends anywhere in the world.</p>
+
+  <% if current_user %>
+    <%= link_to "Make a new post card", "/post_cards/new", class: 'btn btn-success btn-lg' %>
+  <% else %>
+    <%= link_to "Sign in with Instagram", "/auth/instagram/connect", class: 'btn btn-success btn-lg', :'data-loading-text' => "Loading...", id: 'main-auth' %>
+  <% end %>
 </div>
